@@ -1,0 +1,24 @@
+#Removing Old dockers if any
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+#installing necesary repository
+sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+# Adding repo
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+#installing docker
+
+sudo yum install docker-ce

@@ -1,0 +1,40 @@
+#UPDATE PACKAGE
+
+sudo apt-get update
+
+#Install packages to allow apt to use a repository over HTTPS:
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+
+#Add Docker’s official GPG key:
+
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+#for stable edition
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+#now update and install docker 
+sudo apt-get update && sudo apt-get install docker-ce
+
+#to run as non sudo user
+
+sudo groupadd docker && sudo usermod -aG docker $USER
+
+#in the above $USER is the current user in the system
+
+#still problem follow the below commancds
+
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
+
+## with this we completed the docker installation next we nee to start the service
+
+sudo systemctl enable docker
+sudo systemctl start docker
+
