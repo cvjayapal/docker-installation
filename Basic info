@@ -1,0 +1,4 @@
+#to check whick storage is using
+docker info | grep storage
+# to check system info of docker
+docker info
