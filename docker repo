@@ -1,0 +1,8 @@
+Create a repository in /etc/yum.repos.d/docker.repo
+
+[docke-repo]
+name=Dockerrepository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
