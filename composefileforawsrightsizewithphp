@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    image: cvjaipal/jaya-mysql:latest
+    ports:
+      - "3306:3306"
+  web:
+    image: cvjaipal/aws:1
+    container_name: php_web
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    stdin_open: true
+    tty: true
+© 2020 GitHub, Inc.
